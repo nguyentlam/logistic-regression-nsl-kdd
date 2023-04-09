@@ -51,7 +51,7 @@ print('y_transformed[0:2]===', y_transformed[0:2])
 X_train, X_test, y_train, y_test = train_test_split(X_transformed, y_transformed, test_size=0.2, random_state=42)
 
 # Train a logistic regression classifier on the training set
-clf = LogisticRegression(penalty=None, C=1e-6, solver='lbfgs', multi_class='multinomial', max_iter = 100)
+clf = LogisticRegression(penalty=None, C=1e-6, solver='newton-cg', multi_class='ovr', max_iter = 100)
 clf.fit(X_train, y_train.ravel())
 
 # Use the trained classifier to predict the classes of the test set
